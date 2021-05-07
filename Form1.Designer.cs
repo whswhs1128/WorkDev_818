@@ -104,6 +104,7 @@ namespace test_application
             this.button6 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -428,7 +429,7 @@ namespace test_application
             this.groupBox2.Size = new System.Drawing.Size(633, 316);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "CAN DI测试";
+            this.groupBox2.Text = "CAN DO测试";
             // 
             // progressBar2
             // 
@@ -445,6 +446,7 @@ namespace test_application
             this.button9.TabIndex = 36;
             this.button9.Text = "自动测试";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // checkBox17
             // 
@@ -628,6 +630,7 @@ namespace test_application
             this.button3.TabIndex = 16;
             this.button3.Text = "发送";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox1
             // 
@@ -674,6 +677,7 @@ namespace test_application
             this.button8.TabIndex = 34;
             this.button8.Text = "自动测试";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // checkBox16
             // 
@@ -684,6 +688,7 @@ namespace test_application
             this.checkBox16.TabIndex = 33;
             this.checkBox16.Text = "DI16";
             this.checkBox16.UseVisualStyleBackColor = true;
+            this.checkBox16.CheckedChanged += new System.EventHandler(this.checkBox16_CheckedChanged);
             // 
             // checkBox15
             // 
@@ -694,6 +699,7 @@ namespace test_application
             this.checkBox15.TabIndex = 32;
             this.checkBox15.Text = "DI15";
             this.checkBox15.UseVisualStyleBackColor = true;
+            this.checkBox15.CheckedChanged += new System.EventHandler(this.checkBox15_CheckedChanged);
             // 
             // checkBox14
             // 
@@ -704,6 +710,7 @@ namespace test_application
             this.checkBox14.TabIndex = 31;
             this.checkBox14.Text = "DI14";
             this.checkBox14.UseVisualStyleBackColor = true;
+            this.checkBox14.CheckedChanged += new System.EventHandler(this.checkBox14_CheckedChanged);
             // 
             // checkBox13
             // 
@@ -714,6 +721,7 @@ namespace test_application
             this.checkBox13.TabIndex = 30;
             this.checkBox13.Text = "DI13";
             this.checkBox13.UseVisualStyleBackColor = true;
+            this.checkBox13.CheckedChanged += new System.EventHandler(this.checkBox13_CheckedChanged);
             // 
             // checkBox12
             // 
@@ -724,6 +732,7 @@ namespace test_application
             this.checkBox12.TabIndex = 29;
             this.checkBox12.Text = "DI12";
             this.checkBox12.UseVisualStyleBackColor = true;
+            this.checkBox12.CheckedChanged += new System.EventHandler(this.checkBox12_CheckedChanged);
             // 
             // checkBox11
             // 
@@ -734,6 +743,7 @@ namespace test_application
             this.checkBox11.TabIndex = 28;
             this.checkBox11.Text = "DI11";
             this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox11_CheckedChanged);
             // 
             // checkBox10
             // 
@@ -744,6 +754,7 @@ namespace test_application
             this.checkBox10.TabIndex = 27;
             this.checkBox10.Text = "DI10";
             this.checkBox10.UseVisualStyleBackColor = true;
+            this.checkBox10.CheckedChanged += new System.EventHandler(this.checkBox10_CheckedChanged);
             // 
             // checkBox9
             // 
@@ -754,6 +765,7 @@ namespace test_application
             this.checkBox9.TabIndex = 26;
             this.checkBox9.Text = "DI9";
             this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkBox9.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
             // 
             // checkBox8
             // 
@@ -764,6 +776,7 @@ namespace test_application
             this.checkBox8.TabIndex = 25;
             this.checkBox8.Text = "DI8";
             this.checkBox8.UseVisualStyleBackColor = true;
+            this.checkBox8.CheckedChanged += new System.EventHandler(this.checkBox8_CheckedChanged);
             // 
             // checkBox7
             // 
@@ -774,6 +787,7 @@ namespace test_application
             this.checkBox7.TabIndex = 24;
             this.checkBox7.Text = "DI7";
             this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
             // 
             // checkBox6
             // 
@@ -784,6 +798,7 @@ namespace test_application
             this.checkBox6.TabIndex = 23;
             this.checkBox6.Text = "DI6";
             this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
             // 
             // checkBox5
             // 
@@ -794,6 +809,7 @@ namespace test_application
             this.checkBox5.TabIndex = 22;
             this.checkBox5.Text = "DI5";
             this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
             // checkBox4
             // 
@@ -804,6 +820,7 @@ namespace test_application
             this.checkBox4.TabIndex = 21;
             this.checkBox4.Text = "DI4";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -814,6 +831,7 @@ namespace test_application
             this.checkBox3.TabIndex = 20;
             this.checkBox3.Text = "DI3";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -826,6 +844,7 @@ namespace test_application
             this.checkBox2.TabIndex = 19;
             this.checkBox2.Text = "DI2";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -838,6 +857,7 @@ namespace test_application
             this.checkBox1.TabIndex = 18;
             this.checkBox1.Text = "DI1";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // textBox1
             // 
@@ -858,6 +878,7 @@ namespace test_application
             this.button1.TabIndex = 16;
             this.button1.Text = "发送";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // groupBox3
             // 
@@ -921,23 +942,34 @@ namespace test_application
             this.button4.Text = "发送测试数据";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(56, 679);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(121, 44);
+            this.button13.TabIndex = 3;
+            this.button13.Text = "一键测试";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(409, 679);
+            this.button11.Location = new System.Drawing.Point(512, 679);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(121, 44);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "发起连接";
+            this.button11.Size = new System.Drawing.Size(175, 44);
+            this.button11.TabIndex = 4;
+            this.button11.Text = "连接控制器";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click_1);
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(720, 679);
+            this.button12.Location = new System.Drawing.Point(849, 679);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(121, 44);
-            this.button12.TabIndex = 2;
-            this.button12.Text = "断开连接";
+            this.button12.Size = new System.Drawing.Size(169, 44);
+            this.button12.TabIndex = 5;
+            this.button12.Text = "连接中控屏";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // Form1
             // 
@@ -946,6 +978,7 @@ namespace test_application
             this.ClientSize = new System.Drawing.Size(1275, 747);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
+            this.Controls.Add(this.button13);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = " 中控屏工装测试程序";
@@ -1044,6 +1077,7 @@ namespace test_application
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
     }
