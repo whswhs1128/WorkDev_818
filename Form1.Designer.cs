@@ -457,6 +457,7 @@ namespace test_application
             this.checkBox17.TabIndex = 33;
             this.checkBox17.Text = "DO16";
             this.checkBox17.UseVisualStyleBackColor = true;
+            this.checkBox17.CheckedChanged += new System.EventHandler(this.checkBox17_CheckedChanged);
             // 
             // checkBox18
             // 
@@ -467,6 +468,7 @@ namespace test_application
             this.checkBox18.TabIndex = 32;
             this.checkBox18.Text = "DO15";
             this.checkBox18.UseVisualStyleBackColor = true;
+            this.checkBox18.CheckedChanged += new System.EventHandler(this.checkBox18_CheckedChanged);
             // 
             // checkBox19
             // 
@@ -477,6 +479,7 @@ namespace test_application
             this.checkBox19.TabIndex = 31;
             this.checkBox19.Text = "DO14";
             this.checkBox19.UseVisualStyleBackColor = true;
+            this.checkBox19.CheckedChanged += new System.EventHandler(this.checkBox19_CheckedChanged);
             // 
             // checkBox20
             // 
@@ -487,6 +490,7 @@ namespace test_application
             this.checkBox20.TabIndex = 30;
             this.checkBox20.Text = "DO13";
             this.checkBox20.UseVisualStyleBackColor = true;
+            this.checkBox20.CheckedChanged += new System.EventHandler(this.checkBox20_CheckedChanged);
             // 
             // checkBox21
             // 
@@ -497,6 +501,7 @@ namespace test_application
             this.checkBox21.TabIndex = 29;
             this.checkBox21.Text = "DO12";
             this.checkBox21.UseVisualStyleBackColor = true;
+            this.checkBox21.CheckedChanged += new System.EventHandler(this.checkBox21_CheckedChanged);
             // 
             // checkBox22
             // 
@@ -507,6 +512,7 @@ namespace test_application
             this.checkBox22.TabIndex = 28;
             this.checkBox22.Text = "DO11";
             this.checkBox22.UseVisualStyleBackColor = true;
+            this.checkBox22.CheckedChanged += new System.EventHandler(this.checkBox22_CheckedChanged);
             // 
             // checkBox23
             // 
@@ -517,6 +523,7 @@ namespace test_application
             this.checkBox23.TabIndex = 27;
             this.checkBox23.Text = "DO10";
             this.checkBox23.UseVisualStyleBackColor = true;
+            this.checkBox23.CheckedChanged += new System.EventHandler(this.checkBox23_CheckedChanged);
             // 
             // checkBox24
             // 
@@ -527,6 +534,7 @@ namespace test_application
             this.checkBox24.TabIndex = 26;
             this.checkBox24.Text = "DO9";
             this.checkBox24.UseVisualStyleBackColor = true;
+            this.checkBox24.CheckedChanged += new System.EventHandler(this.checkBox24_CheckedChanged);
             // 
             // checkBox25
             // 
@@ -537,6 +545,7 @@ namespace test_application
             this.checkBox25.TabIndex = 25;
             this.checkBox25.Text = "DO8";
             this.checkBox25.UseVisualStyleBackColor = true;
+            this.checkBox25.CheckedChanged += new System.EventHandler(this.checkBox25_CheckedChanged);
             // 
             // checkBox26
             // 
@@ -547,6 +556,7 @@ namespace test_application
             this.checkBox26.TabIndex = 24;
             this.checkBox26.Text = "DO7";
             this.checkBox26.UseVisualStyleBackColor = true;
+            this.checkBox26.CheckedChanged += new System.EventHandler(this.checkBox26_CheckedChanged);
             // 
             // checkBox27
             // 
@@ -557,6 +567,7 @@ namespace test_application
             this.checkBox27.TabIndex = 23;
             this.checkBox27.Text = "DO6";
             this.checkBox27.UseVisualStyleBackColor = true;
+            this.checkBox27.CheckedChanged += new System.EventHandler(this.checkBox27_CheckedChanged);
             // 
             // checkBox28
             // 
@@ -567,6 +578,7 @@ namespace test_application
             this.checkBox28.TabIndex = 22;
             this.checkBox28.Text = "DO5";
             this.checkBox28.UseVisualStyleBackColor = true;
+            this.checkBox28.CheckedChanged += new System.EventHandler(this.checkBox28_CheckedChanged);
             // 
             // checkBox29
             // 
@@ -577,6 +589,7 @@ namespace test_application
             this.checkBox29.TabIndex = 21;
             this.checkBox29.Text = "DO4";
             this.checkBox29.UseVisualStyleBackColor = true;
+            this.checkBox29.CheckedChanged += new System.EventHandler(this.checkBox29_CheckedChanged);
             // 
             // checkBox30
             // 
@@ -587,6 +600,7 @@ namespace test_application
             this.checkBox30.TabIndex = 20;
             this.checkBox30.Text = "DO3";
             this.checkBox30.UseVisualStyleBackColor = true;
+            this.checkBox30.CheckedChanged += new System.EventHandler(this.checkBox30_CheckedChanged);
             // 
             // checkBox31
             // 
@@ -599,6 +613,7 @@ namespace test_application
             this.checkBox31.TabIndex = 19;
             this.checkBox31.Text = "DO2";
             this.checkBox31.UseVisualStyleBackColor = true;
+            this.checkBox31.CheckedChanged += new System.EventHandler(this.checkBox31_CheckedChanged);
             // 
             // checkBox32
             // 
@@ -611,16 +626,18 @@ namespace test_application
             this.checkBox32.TabIndex = 18;
             this.checkBox32.Text = "DO1";
             this.checkBox32.UseVisualStyleBackColor = true;
+            this.checkBox32.CheckedChanged += new System.EventHandler(this.checkBox32_CheckedChanged);
             // 
             // textBox3
             // 
-            this.textBox3.BackColor = System.Drawing.Color.Red;
+            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.textBox3.Location = new System.Drawing.Point(261, 192);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(176, 27);
             this.textBox3.TabIndex = 17;
             this.textBox3.Text = "测试结果：pass/fail";
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // button3
             // 
@@ -861,7 +878,7 @@ namespace test_application
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Lime;
+            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox1.Location = new System.Drawing.Point(261, 192);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;

@@ -23,11 +23,13 @@ namespace test_application
         byte[] zkp_recBuffer = new byte[14];
         private bool zkp_isConn, kzq_isConn;
         private Thread ConnectionState;
+        private Thread kzq_recv_thread, zkp_recv_thread;
 
+        
         public Form1()
         {
             InitializeComponent();
-    }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -73,7 +75,9 @@ namespace test_application
                     client_kzq = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                     EndPoint serverPoint = new IPEndPoint(IPAddress.Parse("172.16.16.168"), 8089);
                     client_kzq.Connect(serverPoint);
-                   
+                    kzq_recv_thread = new Thread(recv_kzq_sock);
+                    kzq_recv_thread.IsBackground = true;
+                    kzq_recv_thread.Start();
                 }
                 catch (Exception)
                 {
@@ -95,11 +99,48 @@ namespace test_application
                 {
                     client_kzq.Close();
                 }
-
             }
             ConnectionState = new Thread(updateConnState);
             ConnectionState.IsBackground = true;
             ConnectionState.Start();
+        }
+
+        private void recv_kzq_sock()
+        {
+            int len = 0;
+            while (true)
+            {
+                try
+                {
+                    len = client_kzq.Receive(kzq_recBuffer);
+                    if (len <= 0)
+                        continue;
+
+
+                    if ((zkp_recBuffer[5] != kzq_sendBuffer[5]) || (zkp_recBuffer[6] != kzq_sendBuffer[6]))
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            textBox3.Text = "测试结果：fail";
+                            textBox3.BackColor = Color.Red;
+                        }));
+                    }
+                    else
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            textBox3.Text = "测试结果：pass";
+                            textBox3.BackColor = Color.Green;
+                        }));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
+            }
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -111,6 +152,9 @@ namespace test_application
                     client_zkp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                     EndPoint serverPoint = new IPEndPoint(IPAddress.Parse("172.16.16.68"), 7080);
                     client_zkp.Connect(serverPoint);
+                    zkp_recv_thread = new Thread(recv_zkp_sock);
+                    zkp_recv_thread.IsBackground = true;
+                    zkp_recv_thread.Start();
 
                 }
                 catch (Exception)
@@ -162,10 +206,51 @@ namespace test_application
             {
                 kzq_sendBuffer[4] = 0x1;
                 kzq_buffer_head();
-                if (client_kzq!=null)
+                if (client_kzq != null)
                 {
                     client_kzq.Send(kzq_sendBuffer);
+
+
+
                 }
+            }
+        }
+
+        private void recv_zkp_sock()
+        {
+            int len = 0;
+            while (true)
+            {
+                try
+                {
+                    len = client_zkp.Receive(zkp_recBuffer);
+                    if (len <= 0)
+                        continue;
+
+
+                    if ((zkp_recBuffer[5] != kzq_sendBuffer[5]) || (zkp_recBuffer[6] != kzq_sendBuffer[6]))
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            textBox1.Text = "测试结果：fail";
+                            textBox1.BackColor = Color.Red;
+                        }));
+                    }
+                    else
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            textBox1.Text = "测试结果：pass";
+                            textBox1.BackColor = Color.Green;
+                        }));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
             }
         }
 
@@ -412,6 +497,203 @@ namespace test_application
             else
             {
 
+            }
+        }
+
+        private void checkBox32_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox32.Checked)
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] | (0x1 << 0));
+            }
+            else
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] & ~(0x1 << 0));
+            }
+        }
+
+        private void checkBox31_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox31.Checked)
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] | (0x1 << 1));
+            }
+            else
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] & ~(0x1 << 1));
+            }
+        }
+
+        private void checkBox30_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox30.Checked)
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] | (0x1 << 2));
+            }
+            else
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] & ~(0x1 << 2));
+            }
+        }
+
+        private void checkBox29_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox29.Checked)
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] | (0x1 << 3));
+            }
+            else
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] & ~(0x1 << 3));
+            }
+        }
+
+        private void checkBox28_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox28.Checked)
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] | (0x1 << 4));
+            }
+            else
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] & ~(0x1 << 4));
+            }
+        }
+
+        private void checkBox27_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox27.Checked)
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] | (0x1 << 5));
+            }
+            else
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] & ~(0x1 << 5));
+            }
+        }
+
+        private void checkBox26_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox26.Checked)
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] | (0x1 << 6));
+            }
+            else
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] & ~(0x1 << 6));
+            }
+        }
+
+        private void checkBox25_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox25.Checked)
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] | (0x1 << 7));
+            }
+            else
+            {
+                zkp_sendBuffer[5] = (byte)(zkp_sendBuffer[5] & ~(0x1 << 7));
+            }
+        }
+
+        private void checkBox24_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox24.Checked)
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] | (0x1 << 0));
+            }
+            else
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] & ~(0x1 << 0));
+            }
+        }
+
+        private void checkBox23_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox23.Checked)
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] | (0x1 << 1));
+            }
+            else
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] & ~(0x1 << 1));
+            }
+        }
+
+        private void checkBox22_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox22.Checked)
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] | (0x1 << 2));
+            }
+            else
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] & ~(0x1 << 2));
+            }
+        }
+
+        private void checkBox21_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox21.Checked)
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] | (0x1 << 3));
+            }
+            else
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] & ~(0x1 << 3));
+            }
+        }
+
+        private void checkBox20_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox20.Checked)
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] | (0x1 << 4));
+            }
+            else
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] & ~(0x1 << 4));
+            }
+        }
+
+        private void checkBox19_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox19.Checked)
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] | (0x1 << 5));
+            }
+            else
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] & ~(0x1 << 5));
+            }
+        }
+
+        private void checkBox18_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox18.Checked)
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] | (0x1 << 6));
+            }
+            else
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] & ~(0x1 << 6));
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox17_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox17.Checked)
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] | (0x1 << 7));
+            }
+            else
+            {
+                zkp_sendBuffer[6] = (byte)(zkp_sendBuffer[6] & ~(0x1 << 7));
             }
         }
 
